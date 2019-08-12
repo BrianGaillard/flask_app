@@ -1,10 +1,14 @@
 from flask import Flask, render_template
+from forms import YearForm
 
 app = Flask(__name__)
 
-@app.route('/')
+app.config['SECRET_KEY'] = 'e388702a9f1ecf45eb7724f78c68825e'
+
+@app.route('/', methods=['GET','POST'])
 def homepage():
-	return render_template('home.html')
+	form = YearForm()
+	return render_template('home.html', form=form)
 
 @app.route('/about')
 def aboutpage():
