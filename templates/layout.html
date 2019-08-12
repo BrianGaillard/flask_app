@@ -59,6 +59,7 @@
 	  <div class="container">
 	    <div class="row">
 	      <div class="col-lg-12 text-center">
+	      	<!-- FIX BLOCK FORMATTING -->
 	        <h1 class="mt-5">
 	        	<div class = "container">
 					{% block page %}{% endblock %}
@@ -66,6 +67,7 @@
 			</h1>
 	        <p class="lead mx-5 pt-3">
 	        {% block info %}{% endblock %}</p>
+	        {% block pgcontent %}{% endblock %}
 	      </div>
 	    </div>
 	  </div>

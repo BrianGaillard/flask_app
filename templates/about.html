@@ -8,7 +8,22 @@
 {% endblock topwords %}
 
 {% block info %}
-	We are a group of college students that are studying disciplines of computer science. We came together to create this project to help East Orange as well as gain a depper understanding of artificial intelligence, or "AI".
+	We are a group of college students that are studying disciplines of computer science. We came together to create this project to help East Orange as well as gain a depper understanding of artificial intelligence, or AI. 
+	After spending some time in City Hall thanks to the East Orange College Intern Program, we tackled the courses provided by the "AI 4 All" program. We utilized the Open Learning course to delve into artificial intelligence and machine learning in the hopes of creating our own project that would benefit the people in our town as well as spread knowledge about AI. 
 {% endblock info %}
+
+{% block pgcontent %}
+	<h1 class="mt-5">
+	    <div class = "container">
+			About This Project
+		</div>
+	</h1>
+	<p class="lead mx-5 pt-3">
+		 This project uses what we have learned from the AI 4 All Open Learning course as well as our past experience with programming to create a functional web application. We used the Flask web framework to create this app as well as Heroku to host the application.
+	</p>
+	<p class="lead mx-5 pt-1">
+		 We use data that is publicly acessible using the financial statements found on the East Orange website. Using these documents, we apply multivariate linear regression to predict possible future financial values.
+	</p>
+{% endblock pgcontent %}
 
 {% set active_page = "about" %}
