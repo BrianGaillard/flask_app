@@ -1,11 +1,14 @@
 {% extends "layout.html" %}
 {% block page %}
-	<h1>About Page<h1>
+	<h1>Who We Are<h1>
 {% endblock page %}
 
+{% block topwords %}
+<h1 class="display-3 text-white mt-5 mb-5">About Us</h1>
+{% endblock topwords %}
+
 {% block info %}
-	<p>Why and how we made this project 
-	and descriptions of the people involved!<p>
+	We are a group of college students that are studying disciplines of computer science. We came together to create this project to help East Orange as well as gain a depper understanding of artificial intelligence, or "AI".
 {% endblock info %}
 
 {% set active_page = "about" %}
