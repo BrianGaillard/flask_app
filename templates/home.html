@@ -18,7 +18,16 @@
 			<legend class="border-bottom mb-4">Enter Year Here</legend>
 			<div class="form-group">
 				{{ form.year.label(class="form-control-label") }}
-				{{ form.year(class="form-control form-control-lg") }}
+				{% if form.year.errors%}
+					{{ form.year(class="form-control form-control-lg is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.year.errors %}
+							<span> {{ error }} </span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.year(class="form-control form-control-lg") }}
+				{% endif %}
 			</div>
 		</fieldset>
 		<div class="form-group">
@@ -29,6 +38,23 @@
 	<p class="lead mx-5 font-italic small" style="color: #FF1C01;">
 		***Note: The predictions made with this model represent possible outcomes. The results may be innacurate when compared to financial statements in the future. This model does not represent official financial statements and documents.
 	 </p>
+
+	<div id="op">
+		{% if scroll %}
+			<script>
+    		document.location.hash = '#' + '{{ scroll }}';
+			</script>
+		{% endif %}
+	 	<p class="lead mx-5">
+		{% if check %}
+		<p> The year you entered is {{form.data.year}}.</p>
+		{% endif %}
+	 	</p>
+	 </div>
+	
+
+
+
 {% endblock inputbox %}
 
 {% set active_page = "home" %}
