@@ -10,8 +10,8 @@ def homepage():
 	form = YearForm()
 	if form.validate_on_submit():
 		#flash(f'Your year is {form.year.data}', 'success')
-		return render_template('home.html', scroll='op', check=True, form=form)
-	return render_template('home.html', form=form)
+		return render_template('home.html', scroll='input', check=True, form=form)
+	return render_template('home.html', scroll='bl', form=form)
 
 @app.route('/about')
 def aboutpage():

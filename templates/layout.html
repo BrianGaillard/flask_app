@@ -11,6 +11,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Dynamic title change -->
 	{% if title %}
 		<title>EO App - {{ title }}</title>
 	{% else %}
@@ -19,98 +20,101 @@
 </head>
 	
 <body>
+	<!-- Navigation Bar -->
 	<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #8D84FF;">
 	    <div class="container">
-	      <a class="navbar-brand" href="#">East Orange AI</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="navbar-toggler-icon"></span>
-	      </button>
-	      <div class="collapse navbar-collapse" id="navbarResponsive">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item {{ 'active' if active_page == 'home' else '' }}">
-	            <a class="nav-link" href="/">Home
-	              <span class="sr-only">(current)</span>
-	            </a>
-	          </li>
-	          <li class="nav-item {{ 'active' if active_page == 'about' else '' }}">
-	            <a class="nav-link" href="/about">About</a>
-	          </li>
-	          <li class="nav-item {{ 'active' if active_page == 'contact' else '' }}">
-	            <a class="nav-link" href="/contact">Contact</a>
-	          </li>
-	        </ul>
-	      </div>
+	    	<a class="navbar-brand" href="#">East Orange AI</a>
+	    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	        	<span class="navbar-toggler-icon"></span>
+	      	</button>
+	      	<div class="collapse navbar-collapse" id="navbarResponsive">
+	        	<ul class="navbar-nav ml-auto">
+	          		<li class="nav-item {{ 'active' if active_page == 'home' else '' }}">
+	            		<a class="nav-link" href="/">Home
+	              			<span class="sr-only">(current)</span>
+	            		</a>
+	          		</li>
+	          		<li class="nav-item {{ 'active' if active_page == 'about' else '' }}">
+	            		<a class="nav-link" href="/about">About</a>
+	          		</li>
+	          		<li class="nav-item {{ 'active' if active_page == 'contact' else '' }}">
+	            		<a class="nav-link" href="/contact">Contact</a>
+	          		</li>
+	       		</ul>
+	      	</div>
 	    </div>
-	  </nav>
+	</nav>
 
- <!-- Header -->
-  <header class="py-5 mb-5" style="background-color: #8D84FF;">
-    <div class="container h-100 text-center">
-      <div class="row h-100 align-items-center">
-        <div class="col-lg-12">
-        	{% block topwords %}{% endblock %}
+ 	<!-- Header -->
+	<header class="py-5 mb-5" style="background-color: #8D84FF;">
+    	<div class="container h-100 text-center">
+      		<div class="row h-100 align-items-center">
+        		<div class="col-lg-12">
+        			{% block topwords %}{% endblock %}
           
-        </div>
-      </div>
-    </div>
-  </header>
+        		</div>
+      		</div>
+    	</div>
+  	</header>
 
-	 <!-- Page Content -->
-	  <div class="container">
-	    <div class="row">
-	      <div class="col-lg-12 text-center">
+	<!-- Page Content -->
+	<div class="container">
+		<div class="row">
+	    	<div class="col-lg-12 text-center">
 	      	<!-- FIX BLOCK FORMATTING -->
-	        <h1 class="mt-5">
-	        	<div class = "container">
-					{% block page %}{% endblock %}
-				</div>
-			</h1>
-	        <p class="lead mx-5 pt-3">
-	        {% block info %}{% endblock %}</p>
-	        {% block pgcontent %}{% endblock %}
-	      </div>
+	        	<h1 class="mt-5">
+	        		<div class = "container">
+						{% block page %}{% endblock %}
+					</div>
+				</h1>
+	        	<p class="lead mx-5 pt-3">
+	        		{% block info %}{% endblock %}</p>
+	        	{% block pgcontent %}{% endblock %}
+	      	</div>
 	    </div>
-	  </div>
+	</div>
 
 	<div class="container">
 	    <div class="row">
-	      <div class="col-lg-12 text-center pb-5">
-	      	{% with messages = get_flashed_messages(with_categories=true) %}
-	      		{% if messages %}
-	      			{% for category, message in messages %}
-	      			<div class="alert alert-{{ category }}">
-	      				{{ message }}
-	      			</div>
-	      			{% endfor %}
-	      				}
-	      		{% endif %}
-	      	{% endwith %}
+	      	<div class="col-lg-12 text-center pb-5">
+	      		<!-- REMOVE -->
+	      		{% with messages = get_flashed_messages(with_categories=true) %}
+		      		{% if messages %}
+		      			{% for category, message in messages %}
+		      				<div class="alert alert-{{ category }}">
+		      					{{ message }}
+		      				</div>
+		      			{% endfor %}
+		      				}
+		      		{% endif %}
+	      		{% endwith %}
+	      		<!-- REMOVE -->
 	        {% block inputbox %}{% endblock %}
 	      </div>
 	    </div>
 	  </div>
 
+	<!-- Footer -->
 	<footer class="pb-5 pt-4"  style="background-color: #79B7DB;">
-    <div class="container">
-    	<div class="row">
-    		<div class="col-sm">
-		    	<p class="pl-5 mt-0 font-weight-bold text-white">
-		      		Resource Links
-		      	</p>
-		      <p class="pl-5 m-0">
-		      	<a href="https://www.eastorange-nj.gov/159/Finance-Department">East Orange Financial Department</a>
-		      </p>
-		      <p class="pl-5 m-0">
-		      	<a href="http://ai-4-all.org/">AI 4 ALL Website</a>
-		      </p>
-	      </div>
-	      <div class="col-sm">
-		    	<p class="pl-5 mt-0 text-right font-weight-bold text-white"> EO - AI</p>
-		    	<p class="pl-5 mt-0 text-right font-weight-bold text-white"> 2019</p>
-	      </div>
-      </div>
-    </div>
-    <!-- /.container -->
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-sm">
+		    		<p class="pl-5 mt-0 font-weight-bold text-white">
+		      			Resource Links
+		      		</p>
+		      		<p class="pl-5 m-0">
+		      			<a href="https://www.eastorange-nj.gov/159/Finance-Department">East Orange Financial Department</a>
+		      		</p>
+		      		<p class="pl-5 m-0">
+		      			<a href="http://ai-4-all.org/">AI 4 ALL Website</a>
+		      		</p>
+	      		</div>
+	      		<div class="col-sm">
+		    		<p class="pl-5 mt-0 text-right font-weight-bold text-white"> EO - AI</p>
+		    		<p class="pl-5 mt-0 text-right font-weight-bold text-white"> 2019</p>
+	      		</div>
+      		</div>
+    	</div>
   	</footer>
 
 	<!-- Optional JavaScript -->

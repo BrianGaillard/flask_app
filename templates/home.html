@@ -39,16 +39,16 @@
 		***Note: The predictions made with this model represent possible outcomes. The results may be innacurate when compared to financial statements in the future. This model does not represent official financial statements and documents.
 	 </p>
 
-	<div id="op">
+	<div id="input">
 		{% if scroll %}
 			<script>
-    		document.location.hash = '#' + '{{ scroll }}';
+    			document.location.hash = '#' + '{{ scroll }}';
 			</script>
 		{% endif %}
 	 	<p class="lead mx-5">
-		{% if check %}
-		<p> The year you entered is {{form.data.year}}.</p>
-		{% endif %}
+			{% if check %}
+				<p> The year you entered is {{form.data.year}}.</p>
+			{% endif %}
 	 	</p>
 	 </div>
 	
