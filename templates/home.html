@@ -47,7 +47,77 @@
 		{% endif %}
 	 	<p class="lead mx-5">
 			{% if check %}
-				<p> The year you entered is {{form.data.year}}.</p>
+				<p class="lead mx-5 mt-5"> Here is the data we use: </p>
+
+				<table class="table mt-5">
+				  <thead>
+				    <tr>
+				      <th scope="col">#</th>
+				      <th scope="col">Year</th>
+				      <th scope="col">Budget</th>
+				      <th scope="col">Total Expenditures</th>
+				      <th scope="col">Tax Raised for Municipal Purposes</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  
+				  	{% for i in range (budget_df.shape[0]) %}
+
+				  		<tr>
+				  			<th scope="row"> {{ i }} </th>
+				  			
+				  				<td>{{ budget_df['year'][i] }}</td>
+				      			<td>{{ budget_df['budget'][i] }}</td>
+				      			<td>{{ budget_df['total_xpend'][i] }}</td>
+				      			<td>{{ budget_df['tax_mcp'][i] }}</td>
+				      			
+				    		</tr>
+
+
+				  	{% endfor %}
+				  </tbody>
+				</table>
+
+				<p class="lead mx-5 mt-5 mb-5"> We compile this information into different groups to train the models to make predictions based on the data. Below are graphs that present the relationship between the respective data labels and the year. </p>
+
+
+				<div class="container">
+					<div class="row">
+    					<div class="col-sm">
+		    				<p class="lead mx-5 font-weight-bold">
+		      				Budget
+		      				</p>
+			      			<img src={{url1}} alt="Chart" height="450" width="500">
+	      				</div>
+	      				<div class="col-sm">
+		    				<p class="lead mx-5 font-weight-bold">
+		      				Total Expenditures
+		      				</p>
+			      			<img src={{url2}} alt="Chart" height="450" width="500">
+	      				</div>
+	      			</div>
+      			</div>
+    	
+				<p class="lead mx-5 mb-5 font-weight-bold">
+		      		Amount to be Raised by Taxation for Municipal Purposes
+		     	</p>
+
+      			<img src={{url3}} alt="Chart" height="450" width="500">
+
+      			<p class="lead mx-5 mt-5 mb-5 font-weight-bold"> Results of the prediction: </p>
+
+      			<p class="lead mx-5 mt-5 mb-5"> 
+      			The predicted budget in {{form.year.data}} will be ${{p1}}.
+      			</p>
+
+      			<p class="lead mx-5 mt-5 mb-5"> 
+      			The predicted total expenditures in {{form.year.data}} will be ${{p2}}.
+      			</p>
+
+      			<p class="lead mx-5 mt-5 mb-5"> 
+      			The predicted amount to be raised by taxation for municipal purposes in {{form.year.data}} will be ${{p3}}.
+      			</p>
+
 			{% endif %}
 	 	</p>
 	 </div>
