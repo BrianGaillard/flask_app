@@ -1,5 +1,8 @@
 # EO-AI
 
+Website
+---------------------
+https://eo-ai.herokuapp.com/
 
 Purpose
 ---------------------
@@ -15,6 +18,6 @@ The app uses Flask as a web framework, and the app itself is hosted on Heroku.
 
 Team
 ---------------------
-Brian Gaillard
-D'maya Reece-Eastwood
+Brian Gaillard,
+D'maya Reece-Eastwood,
 Jaleel Davidson
